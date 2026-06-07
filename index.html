@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pinta Caritas Koala</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:linear-gradient(
+135deg,
+#ff5ea8,
+#ff7b54,
+#ffb347,
+#ffd166
+);
+
+min-height:100vh;
+overflow-x:hidden;
+color:white;
+
+}
+
+/* BURBUJAS */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:450px;
+height:450px;
+
+background:#ffffff;
+
+opacity:.15;
+
+border-radius:50%;
+
+top:-150px;
+right:-150px;
+
+filter:blur(120px);
+
+z-index:-1;
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+width:350px;
+height:350px;
+
+background:#ffffff;
+
+opacity:.12;
+
+border-radius:50%;
+
+bottom:-120px;
+left:-120px;
+
+filter:blur(120px);
+
+z-index:-1;
+}
+
+.hero{
+
+padding:60px 20px;
+
+text-align:center;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+
+position: relative;
+}
+
+.hero::before {
+content: "";
+position: absolute;
+top: -100px;
+left: -100px;
+width: 200px;
+height: 200px;
+background: radial-gradient(circle, rgba(255,255,255,.3), transparent);
+border-radius: 50%;
+animation: floarBrillo 8s ease-in-out infinite;
+z-index: 0;
+}
+
+.hero::after {
+content: "";
+position: absolute;
+bottom: -50px;
+right: -50px;
+width: 150px;
+height: 150px;
+background: radial-gradient(circle, rgba(255,234,193,.3), transparent);
+border-radius: 50%;
+animation: floarBrillo 10s ease-in-out infinite reverse;
+z-index: 0;
+}
+
+@keyframes floarBrillo {
+0%, 100% {
+transform: translate(0, 0) scale(1);
+opacity: 0.3;
+}
+
+50% {
+transform: translate(30px, -30px) scale(1.1);
+opacity: 0.6;
+}
+}
+
+.badge{
+
+background:white;
+
+color:#ff5ea8;
+
+padding:12px 25px;
+
+border-radius:50px;
+
+font-weight:700;
+
+margin-bottom:25px;
+
+box-shadow:0 0 25px rgba(255,255,255,.4);
+
+position: relative;
+z-index: 1;
+
+}
+
+.logo{
+
+width:140px;
+height:140px;
+
+border-radius:50%;
+
+position: relative;
+z-index: 1;
+
+background:white;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+font-size:70px;
+
+margin-bottom:25px;
+
+box-shadow:0 0 35px rgba(255,255,255,.4);
+
+}
+
+.hero h1{
+
+font-size:4rem;
+
+font-weight:800;
+
+line-height:1.1;
+
+margin-bottom:15px;
+
+text-shadow:
+0 3px 15px rgba(0,0,0,.15);
+
+position: relative;
+z-index: 1;
+
+}
+
+.hero p{
+
+font-size:1.3rem;
+
+max-width:700px;
+
+font-weight:500;
+
+position: relative;
+z-index: 1;
+
+}
+
+.highlight{
+
+font-weight:800;
+
+color:#fff8c5;
+}
+
+.price-container{
+
+display:flex;
+
+justify-content:center;
+
+gap:25px;
+
+flex-wrap:wrap;
+
+margin-top:40px;
+
+position: relative;
+z-index: 1;
+
+}
+
+.price-card{
+
+background:rgba(255,255,255,.18);
+
+backdrop-filter:blur(15px);
+
+padding:25px;
+
+border-radius:30px;
+
+width:260px;
+
+transition:.3s;
+
+border:1px solid rgba(255,255,255,.25);
+
+}
+
+.price-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.price{
+
+font-size:3rem;
+
+font-weight:800;
+
+}
+
+.price-title{
+
+font-size:1.1rem;
+
+margin-top:10px;
+
+font-weight:600;
+
+}
+
+/* ANIMACIONES DE BRILLO */
+
+@keyframes brillo {
+
+0%, 100% {
+box-shadow: 0 0 10px rgba(255,255,255,.1);
+}
+
+50% {
+box-shadow: 0 0 30px rgba(255,255,255,.4);
+}
+
+}
+
+@keyframes brilloCard {
+
+0%, 100% {
+border-color: rgba(255,255,255,.15);
+}
+
+50% {
+border-color: rgba(255,255,255,.35);
+box-shadow: 0 0 30px rgba(255,255,255,.2);
+}
+
+}
+
+.card {
+animation: brilloCard 3s ease-in-out infinite;
+}
+
+.option {
+animation: brillo 2s ease-in-out infinite;
+}
+
+.badge {
+animation: brillo 1.5s ease-in-out infinite;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:2.8rem;
+
+}
+
+.logo{
+
+width:110px;
+height:110px;
+
+font-size:55px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="hero">
+
+<div class="badge">
+🎨 APARTA TU FECHA
+</div>
+
+<div class="logo">
+🐨
+</div>
+
+<h1>
+PINTA CARITAS<br>
+KOALA
+</h1>
+
+<p>
+
+Diseños coloridos para
+<span class="highlight">
+fiestas, eventos y celebraciones
+</span>
+
+</p>
+
+<div class="price-container">
+
+<div class="price-card">
+
+<div class="price">
+$750
+</div>
+
+<div class="price-title">
+PAQUETE DE 2 HORAS
+</div>
+
+</div>
+
+<div class="price-card">
+
+<div class="price">
++$100
+</div>
+
+<div class="price-title">
+FUERA DE ZONA
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ========================= -->
+<!-- FORMULARIO INTERACTIVO -->
+<!-- ========================= -->
+
+<style>
+
+.container{
+
+max-width:1200px;
+
+margin:auto;
+
+padding:20px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(15px);
+
+padding:30px;
+
+border-radius:30px;
+
+margin-bottom:25px;
+
+border:1px solid rgba(255,255,255,.20);
+
+}
+
+.card h2{
+
+margin-bottom:20px;
+
+font-size:1.8rem;
+
+}
+
+.options{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:15px;
+
+}
+
+.option{
+
+padding:14px 22px;
+
+border-radius:18px;
+
+background:rgba(255,255,255,.15);
+
+cursor:pointer;
+
+transition:.3s;
+
+font-weight:600;
+
+}
+
+.option:hover{
+
+transform:translateY(-4px);
+
+background:white;
+
+color:#ff5ea8;
+
+}
+
+.option.active{
+
+background:white;
+
+color:#ff5ea8;
+
+font-weight:700;
+
+box-shadow:0 0 20px rgba(255,255,255,.5);
+
+}
+
+.form-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:20px;
+
+}
+
+.input-group{
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+.input-group label{
+
+margin-bottom:8px;
+
+font-weight:600;
+
+}
+
+.input-group input,
+.input-group textarea{
+
+padding:15px;
+
+border:none;
+
+border-radius:15px;
+
+font-size:1rem;
+
+outline:none;
+
+}
+
+.input-group textarea{
+
+height:120px;
+
+resize:none;
+
+}
+
+.total-box{
+
+text-align:center;
+
+padding:25px;
+
+font-size:2rem;
+
+font-weight:800;
+
+background:rgba(255,255,255,.15);
+
+border-radius:25px;
+
+margin-top:20px;
+
+}
+
+@media(max-width:768px){
+
+.options{
+
+justify-content:center;
+
+}
+
+}
+
+</style>
+
+<div class="container">
+
+<!-- ZONA -->
+
+<div class="card">
+
+<h2>📍 Zona del Evento</h2>
+
+<div class="options" id="zona">
+
+<div class="option">Caucel CD</div>
+
+<div class="option">Caucel Pueblo</div>
+
+<div class="option">Gran Santa Fe</div>
+
+<div class="option">Alrededores</div>
+
+<div class="option">Otra Zona (+$100)</div>
+
+</div>
+
+</div>
+
+<!-- HORAS EXTRA -->
+
+<div class="card">
+
+<h2>⏰ Horas Extra</h2>
+
+<div class="options" id="horas">
+
+<div class="option">0</div>
+<div class="option">1</div>
+<div class="option">2</div>
+<div class="option">3</div>
+
+</div>
+
+</div>
+
+<!-- TIPO DE EVENTO -->
+
+<div class="card">
+
+<h2>🎉 Tipo de Evento</h2>
+
+<div class="options" id="evento">
+
+<div class="option">Cumpleaños</div>
+
+<div class="option">Bautizo</div>
+
+<div class="option">Escuela</div>
+
+<div class="option">Festival</div>
+
+<div class="option">Empresa</div>
+
+<div class="option">Otro</div>
+
+</div>
+
+</div>
+
+<!-- DISEÑOS -->
+
+<div class="card">
+
+<h2>🎨 Diseños Favoritos</h2>
+
+<div class="options">
+
+<div class="option">🦄 Unicornio</div>
+
+<div class="option">🦋 Mariposa</div>
+
+<div class="option">🐯 Tigre</div>
+
+<div class="option">👑 Princesa</div>
+
+<div class="option">🕷️ Spiderman</div>
+
+<div class="option">🐶 Perrito</div>
+
+</div>
+
+</div>
+
+<!-- DATOS -->
+
+<div class="card">
+
+<h2>📝 Datos del Evento</h2>
+
+<div class="form-grid">
+
+<div class="input-group">
+
+<label>Nombre del Cliente</label>
+
+<input
+type="text"
+id="nombre"
+placeholder="Nombre completo">
+
+</div>
+
+<div class="input-group">
+
+<label>Teléfono</label>
+
+<input
+type="tel"
+id="telefono"
+placeholder="5512345678">
+
+</div>
+
+<div class="input-group">
+
+<label>Fecha del Evento</label>
+
+<input
+type="date"
+id="fecha">
+
+</div>
+
+<div class="input-group">
+
+<label>Cantidad Aproximada de Niños</label>
+
+<input
+type="number"
+id="ninos"
+placeholder="20">
+
+</div>
+
+</div>
+
+<br>
+
+<div class="input-group">
+
+<label>Dirección o Referencias</label>
+
+<textarea
+id="comentarios"
+placeholder="Dirección, temática o información adicional">
+</textarea>
+
+</div>
+
+<div class="total-box">
+
+Total Estimado:
+<span id="total">
+$750
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let precioBase = 750;
+
+let zonaSeleccionada = "";
+
+let horasExtra = 0;
+
+let eventoSeleccionado = "";
+
+document
+.querySelectorAll("#zona .option")
+.forEach(op=>{
+
+op.addEventListener("click",()=>{
+
+document
+.querySelectorAll("#zona .option")
+.forEach(x=>x.classList.remove("active"));
+
+op.classList.add("active");
+
+zonaSeleccionada = op.innerText;
+
+calcularTotal();
+
+});
+
+});
+
+document
+.querySelectorAll("#horas .option")
+.forEach(op=>{
+
+op.addEventListener("click",()=>{
+
+document
+.querySelectorAll("#horas .option")
+.forEach(x=>x.classList.remove("active"));
+
+op.classList.add("active");
+
+horasExtra = parseInt(op.innerText);
+
+calcularTotal();
+
+});
+
+});
+
+document
+.querySelectorAll("#evento .option")
+.forEach(op=>{
+
+op.addEventListener("click",()=>{
+
+document
+.querySelectorAll("#evento .option")
+.forEach(x=>x.classList.remove("active"));
+
+op.classList.add("active");
+
+eventoSeleccionado = op.innerText;
+
+});
+
+});
+
+function calcularTotal(){
+
+let total = precioBase;
+
+if(
+zonaSeleccionada.includes("Otra Zona")
+){
+
+total += 100;
+
+}
+
+total += horasExtra * 100;
+
+document
+.getElementById("total")
+.innerText = "$" + total;
+
+}
+
+</script>
+
+<style>
+
+.btn-whatsapp{
+margin-top:20px;
+width:100%;
+padding:18px;
+border:none;
+border-radius:20px;
+background:linear-gradient(135deg,#25D366,#128C7E);
+color:white;
+font-size:1.2rem;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
+
+.btn-whatsapp:hover{
+transform:translateY(-5px);
+box-shadow:0 0 25px rgba(37,211,102,.5);
+}
+
+/* BOTÓN FLOTANTE */
+.whatsapp-float{
+position:fixed;
+bottom:25px;
+right:25px;
+width:70px;
+height:70px;
+border-radius:50%;
+background:#25D366;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:35px;
+text-decoration:none;
+box-shadow:0 0 25px rgba(37,211,102,.6);
+z-index:999;
+transition:.3s;
+}
+
+.whatsapp-float:hover{
+transform:scale(1.1);
+}
+
+</style>
+
+<div class="card">
+
+<button class="btn-whatsapp" onclick="enviarWhatsApp()">
+📲 COTIZAR POR WHATSAPP
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>📍 Ubicación</h2>
+
+<p>
+Fracc. Yaxnah 219 17A<br>
+🏪 Pinta Caritas Koala<br>
+📱 5575132629
+</p>
+
+</div>
+
+<div class="card" style="text-align:center;opacity:.8;">
+PINTA CARITAS KOALA © 2025<br>
+🎨 Diversión y color en cada evento
+</div>
+
+</div>
+
+<a href="https://wa.me/5575132629" class="whatsapp-float">
+💬
+</a>
+
+<script>
+
+function enviarWhatsApp(){
+
+let mensaje =
+`Hola! Quiero cotizar Pinta Caritas Koala
+
+Zona: ${zonaSeleccionada}
+Horas extra: ${horasExtra}
+Evento: ${eventoSeleccionado}
+
+Nombre: ${document.getElementById("nombre").value}
+Telefono: ${document.getElementById("telefono").value}
+Fecha: ${document.getElementById("fecha").value}
+Ninos: ${document.getElementById("ninos").value}
+
+Comentarios: ${document.getElementById("comentarios").value}
+
+Total estimado: $750 + extras`;
+
+let url =
+"https://wa.me/5575132629?text=" +
+encodeURIComponent(mensaje);
+
+window.open(url, "_blank");
+
+}
+
+</script>
+</body>
+</html>
